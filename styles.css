@@ -1,0 +1,97 @@
+* {
+  box-sizing: border-box;
+}
+
+body, html {
+  margin: 0;
+  height: 100%;
+  font-family: Arial, sans-serif;
+  overflow: hidden;
+}
+
+.top-panel {
+  height: 60px;
+  background: linear-gradient(to right, #4A90E2, #007AFF);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: bold;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.main {
+  display: flex;
+  height: calc(100% - 60px);
+  width: 100%;
+}
+
+.left-panel {
+  width: 220px;
+  min-width: 150px;
+  background: linear-gradient(to bottom, #f3f3f3, #e0e0e0);
+  padding: 10px;
+  overflow-y: auto;
+  border-right: 1px solid #ccc;
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.05) 0,
+    rgba(255, 255, 255, 0.05) 1px,
+    transparent 1px,
+    transparent 5px
+  );
+}
+
+.right-panel {
+  flex-grow: 1;
+  background: radial-gradient(circle at top left, #f0f8ff, #d6e6ff);
+  background-image: url('https://www.transparenttextures.com/patterns/clean-gray-paper.png');
+  background-repeat: repeat;
+  overflow: hidden;
+}
+
+iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.left-panel ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.left-panel > ul > li {
+  padding: 8px;
+  font-weight: bold;
+  cursor: default;
+}
+
+.submenu {
+  margin-left: 15px;
+  font-size: 0.9em;
+  display: block;
+}
+
+.submenu li {
+  padding: 6px 8px;
+  cursor: pointer;
+  font-weight: normal;
+  white-space: normal;           /* ✅ Allow wrap */
+  word-break: break-word;        /* ✅ Break long words */
+  line-height: 1.4;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;                      /* spacing between icon and text */
+}
+
+.submenu li i {
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+.submenu li:hover {
+  background-color: #ddd;
+}

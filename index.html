@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Three Panel Layout</title>
+  <link rel="stylesheet" href="styles.css" />
+  <!-- ✅ Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <div class="top-panel">My Website Title</div>
+  <div class="main">
+    <div class="left-panel" id="leftPanel">
+      <ul>
+        <li>
+          Menu 1
+          <ul class="submenu">
+            <li onclick="loadPage('page1.html')">
+              <i class="fas fa-file-alt"></i>
+              Very Long Submenu Item Example That Should Wrap Properly Across Multiple Lines And Still Look Good
+            </li>
+            <li onclick="loadPage('page2.html')">
+              <i class="fas fa-file-alt"></i>
+              Page 1-2
+            </li>
+          </ul>
+        </li>
+        <li>
+          Menu 2
+          <ul class="submenu">
+            <li onclick="loadPage('page3.html')">
+              <i class="fas fa-file-alt"></i>
+              Another Long Item That Should Also Wrap Correctly and Use an Icon
+            </li>
+            <li onclick="loadPage('page4.html')">
+              <i class="fas fa-file-alt"></i>
+              Page 2-2
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div class="right-panel">
+      <iframe id="contentFrame" src="home.html"></iframe>
+    </div>
+  </div>
+
+  <script>
+    function loadPage(file) {
+      document.getElementById('contentFrame').src = file;
+    }
+  </script>
+</body>
+</html>
