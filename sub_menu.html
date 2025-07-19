@@ -1,0 +1,129 @@
+<div style="padding: 40px;">
+    <div id="submenu-content">
+        <!-- Content will be populated by JavaScript -->
+    </div>
+</div>
+
+<script>
+// Get current context and populate submenu content
+const context = window.getCurrentContext();
+const submenuContent = document.getElementById('submenu-content');
+
+// Sample project data for demonstration
+const projectData = {
+    'digital-art': {
+        title: 'Digital Art Portfolio',
+        description: 'Modern digital compositions created using various digital art tools and techniques.',
+        projects: [
+            'Abstract Digital Composition - Vibrant geometric patterns',
+            'Digital Portrait Series - Stylized character designs',
+            'Futuristic Landscapes - Sci-fi inspired environments',
+            'Digital Illustrations - Concept art and illustrations'
+        ]
+    },
+    'basics': {
+        title: 'C++ Basics & Syntax',
+        description: 'Fundamental concepts of C++ programming including variables, data types, and basic operations.',
+        projects: [
+            'Hello World Program - First C++ application',
+            'Variable Declarations - Understanding data types',
+            'Arithmetic Operations - Mathematical calculations',
+            'Input/Output Operations - User interaction basics'
+        ]
+    },
+    'oop': {
+        title: 'Object-Oriented Programming',
+        description: 'Advanced C++ concepts including classes, objects, inheritance, and polymorphism.',
+        projects: [
+            'Class Design Patterns - Encapsulation examples',
+            'Inheritance Hierarchies - Base and derived classes',
+            'Polymorphism Implementation - Virtual functions',
+            'Abstract Classes - Pure virtual functions'
+        ]
+    }
+    // Add more as needed
+};
+
+const categoryNames = {
+    'art': 'Art',
+    'programming': 'Programming Projects',
+    'ai-projects': 'AI Projects',
+    'cpp-level1': 'C++ Programming Level 1',
+    'cpp-level2': 'C++ Programming Level 2'
+};
+
+const subcategoryNames = {
+    'digital-art': 'Digital Art',
+    'paintings': 'Paintings',
+    'sketches': 'Sketches',
+    'photography': 'Photography',
+    'web-apps': 'Web Applications',
+    'mobile-apps': 'Mobile Apps',
+    'desktop-apps': 'Desktop Applications',
+    'games': 'Games',
+    'machine-learning': 'Machine Learning',
+    'computer-vision': 'Computer Vision',
+    'nlp': 'Natural Language Processing',
+    'neural-networks': 'Neural Networks',
+    'basics': 'Basics & Syntax',
+    'control-structures': 'Control Structures',
+    'functions': 'Functions',
+    'arrays-strings': 'Arrays & Strings',
+    'simple-projects': 'Simple Projects',
+    'oop': 'Object-Oriented Programming',
+    'data-structures': 'Data Structures',
+    'algorithms': 'Algorithms',
+    'templates': 'Templates & STL',
+    'advanced-projects': 'Advanced Projects'
+};
+
+const projectInfo = projectData[context.subcategory] || {
+    title: subcategoryNames[context.subcategory] || 'Unknown Category',
+    description: 'Content for this category is being prepared. Please check back soon.',
+    projects: []
+};
+
+submenuContent.innerHTML = `
+    <div style="margin-bottom: 40px;">
+        <div style="background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 40px; border-radius: 20px; text-align: center;">
+            <h1 style="font-size: 2.5em; margin-bottom: 15px;">${projectInfo.title}</h1>
+            <p style="font-size: 1.1em; opacity: 0.9; max-width: 600px; margin: 0 auto;">${projectInfo.description}</p>
+        </div>
+    </div>
+    
+    <div style="background: white; padding: 40px; border-radius: 15px; box-shadow: 0 8px 25px rgba(0,0,0,0.1);">
+        <h2 style="color: #333; margin-bottom: 30px; font-size: 1.8em;">Featured Projects</h2>
+        
+        ${projectInfo.projects.length > 0 ? `
+            <div style="display: grid; gap: 20px;">
+                ${projectInfo.projects.map((project, index) => `
+                    <div style="padding: 25px; border: 1px solid #eee; border-radius: 10px; transition: all 0.3s ease;"
+                         onmouseover="this.style.borderColor='#667eea'; this.style.transform='translateX(10px)'"
+                         onmouseout="this.style.borderColor='#eee'; this.style.transform='translateX(0)'">
+                        <div style="display: flex; align-items: center;">
+                            <div style="background: linear-gradient(135deg, #667eea, #764ba2); color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 20px; font-weight: bold;">
+                                ${index + 1}
+                            </div>
+                            <div>
+                                <h3 style="color: #333; margin-bottom: 5px;">${project.split(' - ')[0]}</h3>
+                                <p style="color: #666; margin: 0;">${project.split(' - ')[1] || 'Project description'}</p>
+                            </div>
+                        </div>
+                    </div>
+                `).join('')}
+            </div>
+        ` : `
+            <div style="text-align: center; padding: 60px 20px; color: #666;">
+                <h3 style="margin-bottom: 15px;">Coming Soon</h3>
+                <p>Projects for this category are currently being developed. Please check back later!</p>
+            </div>
+        `}
+        
+        <div style="margin-top: 40px; padding-top: 30px; border-top: 1px solid #eee; text-align: center;">
+            <p style="color: #666; font-style: italic;">
+                Category: ${categoryNames[context.category]} → ${subcategoryNames[context.subcategory]}
+            </p>
+        </div>
+    </div>
+`;
+</script>

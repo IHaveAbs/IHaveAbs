@@ -1,0 +1,104 @@
+<div style="padding: 40px;">
+    <div id="menu-content">
+        <!-- Content will be populated by JavaScript -->
+    </div>
+</div>
+
+<script>
+// Get current context and populate menu content
+const context = window.getCurrentContext();
+const menuContent = document.getElementById('menu-content');
+
+const categoryInfo = {
+    'art': {
+        title: 'Art Gallery',
+        description: 'Explore my creative works across different artistic mediums',
+        icon: '🎨',
+        color: 'linear-gradient(135deg, #ff6b6b, #ee5a24)',
+        subcategories: [
+            { key: 'digital-art', name: 'Digital Art', desc: 'Modern digital compositions and designs' },
+            { key: 'paintings', name: 'Paintings', desc: 'Traditional oil and watercolor paintings' },
+            { key: 'sketches', name: 'Sketches', desc: 'Pencil sketches and character studies' },
+            { key: 'photography', name: 'Photography', desc: 'Nature and street photography' }
+        ]
+    },
+    'programming': {
+        title: 'Programming Projects',
+        description: 'A collection of software applications and development projects',
+        icon: '💻',
+        color: 'linear-gradient(135deg, #4834d4, #686de0)',
+        subcategories: [
+            { key: 'web-apps', name: 'Web Applications', desc: 'Full-stack web development projects' },
+            { key: 'mobile-apps', name: 'Mobile Apps', desc: 'iOS and Android applications' },
+            { key: 'desktop-apps', name: 'Desktop Applications', desc: 'Cross-platform desktop software' },
+            { key: 'games', name: 'Games', desc: '2D and 3D game development projects' }
+        ]
+    },
+    'ai-projects': {
+        title: 'AI Projects',
+        description: 'Artificial Intelligence and Machine Learning implementations',
+        icon: '🤖',
+        color: 'linear-gradient(135deg, #00d2d3, #54a0ff)',
+        subcategories: [
+            { key: 'machine-learning', name: 'Machine Learning', desc: 'Predictive models and analytics' },
+            { key: 'computer-vision', name: 'Computer Vision', desc: 'Image processing and object detection' },
+            { key: 'nlp', name: 'Natural Language Processing', desc: 'Text analysis and language models' },
+            { key: 'neural-networks', name: 'Neural Networks', desc: 'Deep learning implementations' }
+        ]
+    },
+    'cpp-level1': {
+        title: 'C++ Programming Level 1',
+        description: 'Fundamental C++ programming concepts and basic projects',
+        icon: '⚡',
+        color: 'linear-gradient(135deg, #5f27cd, #341f97)',
+        subcategories: [
+            { key: 'basics', name: 'Basics & Syntax', desc: 'Variables, data types, and operators' },
+            { key: 'control-structures', name: 'Control Structures', desc: 'Loops, conditions, and decision making' },
+            { key: 'functions', name: 'Functions', desc: 'Function creation and parameter handling' },
+            { key: 'arrays-strings', name: 'Arrays & Strings', desc: 'Data collections and string manipulation' },
+            { key: 'simple-projects', name: 'Simple Projects', desc: 'Beginner-friendly programming projects' }
+        ]
+    },
+    'cpp-level2': {
+        title: 'C++ Programming Level 2',
+        description: 'Advanced C++ programming including OOP and complex data structures',
+        icon: '🔥',
+        color: 'linear-gradient(135deg, #ff3838, #ff6b6b)',
+        subcategories: [
+            { key: 'oop', name: 'Object-Oriented Programming', desc: 'Classes, inheritance, and polymorphism' },
+            { key: 'data-structures', name: 'Data Structures', desc: 'Lists, trees, graphs, and advanced structures' },
+            { key: 'algorithms', name: 'Algorithms', desc: 'Sorting, searching, and optimization algorithms' },
+            { key: 'templates', name: 'Templates & STL', desc: 'Generic programming and standard library' },
+            { key: 'advanced-projects', name: 'Advanced Projects', desc: 'Complex applications and systems' }
+        ]
+    }
+};
+
+const info = categoryInfo[context.category];
+if (info) {
+    menuContent.innerHTML = `
+        <div style="text-align: center; margin-bottom: 50px;">
+            <div style="background: ${info.color}; color: white; padding: 40px; border-radius: 20px; margin-bottom: 30px;">
+                <h1 style="font-size: 3em; margin-bottom: 15px;">${info.icon} ${info.title}</h1>
+                <p style="font-size: 1.2em; opacity: 0.9;">${info.description}</p>
+            </div>
+        </div>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px;">
+            ${info.subcategories.map(sub => `
+                <div style="background: white; padding: 30px; border-radius: 15px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); transition: transform 0.3s ease; cursor: pointer;" 
+                     onmouseover="this.style.transform='translateY(-5px)'" 
+                     onmouseout="this.style.transform='translateY(0)'">
+                    <h3 style="color: #333; margin-bottom: 15px; font-size: 1.3em;">${sub.name}</h3>
+                    <p style="color: #666; line-height: 1.6;">${sub.desc}</p>
+                    <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid #eee;">
+                        <span style="color: #667eea; font-weight: 500;">Click to explore →</span>
+                    </div>
+                </div>
+            `).join('')}
+        </div>
+    `;
+} else {
+    menuContent.innerHTML = '<p>Category not found.</p>';
+}
+</script>
