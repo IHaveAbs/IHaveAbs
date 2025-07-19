@@ -71,28 +71,19 @@ body {
     min-height: calc(100vh - 70px);
 }
 
-/* Left Navigation Panel */
+/* Left Navigation Panel - FIX: Start from top to eliminate gap */
 .nav-panel {
     width: 280px;
     background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
     color: white;
-    padding: 20px 0;
+    padding: 90px 0 20px 0; /* Top padding accounts for top panel height + some space */
     box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
     position: fixed;
-    top: 70px;
+    top: 0; /* Start from the very top */
     left: 0;
-    height: calc(100vh - 70px);
+    height: 100vh; /* Full viewport height */
     overflow-y: auto;
     z-index: 100;
-}
-
-.nav-title {
-    text-align: center;
-    padding: 0 20px 30px;
-    font-weight: 300;
-    font-size: 28px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-    margin-bottom: 20px;
 }
 
 .nav-menu {
@@ -265,6 +256,7 @@ body {
         height: auto;
         position: relative;
         top: 0;
+        padding: 15px 0;
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     }
     
@@ -290,11 +282,6 @@ body {
     
     .nav-panel {
         padding: 15px 0;
-    }
-    
-    .nav-title {
-        font-size: 24px;
-        padding-bottom: 20px;
     }
     
     #content-frame {
