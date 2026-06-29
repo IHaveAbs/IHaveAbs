@@ -1,16 +1,19 @@
-## Hi there 👋
+# Situ's Portfolio
 
-<!--
-**IHaveAbs/IHaveAbs** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+A personal portfolio website showcasing a collection of art, programming projects, and AI innovations.
 
-Here are some ideas to get you started:
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+## Running Locally
+
+To host the site locally with Python, open your terminal, navigate to the project folder, and start Python's built-in HTTP server:
+
+```bash
+cd /path/to/your/website/folder
+python3 -m http.server 8000
+```
+
+Then open the site in your browser:
+
+```
+http://localhost:8000
+```
